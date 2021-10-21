@@ -10,6 +10,6 @@ import {
 serve({
   "/": randomJokeHandler,
   "/:quantity": randomJokeHandlerQuantity,
-  "/type/:quantity": randomJokesByTypeHandler,
+  "/type/:type/:quantity": randomJokesByTypeHandler,
   404: notFoundHandler,
 });
