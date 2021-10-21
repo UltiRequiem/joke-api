@@ -228,8 +228,8 @@ export const JOKES: Joke[] = [
   {
     "id": 37,
     "type": "general",
-    "setup": "Why did the mushroom get invited to the party?",
-    "punchline": "Because he was a fungi.",
+    "setup": "Why did the gym close down?",
+    "punchline": "Because it just didn't work out.",
   },
   {
     "id": 38,
@@ -791,9 +791,9 @@ export const JOKES: Joke[] = [
   },
   {
     "id": 130,
-    "type": "general",
-    "setup": "How do you make holy water?",
-    "punchline": "You boil the hell out of it.",
+    "type": "General",
+    "setup": "How do you make the number one disappear?",
+    "punchline": "Add the letter G and it’s “gone”!",
   },
   {
     "id": 131,
@@ -2305,5 +2305,258 @@ export const JOKES: Joke[] = [
     "setup":
       "My older brother always tore the last pages of my comic books, and never told me why.",
     "punchline": "I had to draw my own conclusions.",
+  },
+  {
+    "id": 388,
+    "type": "general",
+    "setup": "What do you call a bee that can't make up its mind?",
+    "punchline": "A maybe.",
+  },
+
+  {
+    "id": 389,
+    "type": "programming",
+    "setup": "What is the most used language in programming?",
+    "punchline": "Profanity.",
+  },
+  {
+    "id": 390,
+    "type": "anime",
+    "setup": "If Erin, Marco and Jean made a tv show?",
+    "punchline": "It would be called two and a half men.",
+  },
+  {
+    "id": 391,
+    "type": "anime",
+    "setup": "Where did Vegeta go after death?",
+    "punchline": "Into the Frieza.",
+  },
+  {
+    "id": 392,
+    "type": "anime",
+    "setup": "What's a titan favorite food?",
+    "punchline": "rawmen",
+  },
+  {
+    "id": 393,
+    "type": "anime",
+    "setup": "How do you get 500 Tentacruels on a bus?",
+    "punchline": "you POKE-EM-ON!",
+  },
+  {
+    "id": 394,
+    "type": "anime",
+    "setup": "If you mix a melon and collie, what do you get?",
+    "punchline": "The Melancholy of Haruhi Suzumiya!",
+  },
+  {
+    "id": 395,
+    "type": "anime",
+    "setup": "What do you call a Titan who can't swim?",
+    "punchline": "Titanic.",
+  },
+  {
+    "id": 396,
+    "type": "anime",
+    "setup": "What do Saiyans wear to Beach?",
+    "punchline": "Titanic.",
+  },
+  {
+    "id": 397,
+    "type": "anime",
+    "setup": "What do you call a Titan who can't swim?",
+    "punchline": "Trunks",
+  },
+  {
+    "id": 398,
+    "type": "anime",
+    "setup":
+      "What do you get when you cross a Sailor scout with a Barn yard animal?",
+    "punchline": "Sailor Moo",
+  },
+  {
+    "id": 399,
+    "type": "anime",
+    "setup": "What do Light and a lift have in common?",
+    "punchline": "They are both L-EVADERS!.",
+  },
+  {
+    "id": 400,
+    "type": "anime",
+    "setup":
+      "What do you think, Haruhi? Do you find this large crab to be......",
+    "punchline": "crab-tivating?",
+  },
+  {
+    "id": 401,
+    "type": "anime",
+    "setup": "What is Gohan's favorite instrument?",
+    "punchline": "The PICCOLO!",
+  },
+  {
+    "id": 402,
+    "type": "anime",
+    "setup": "What do Light and a lift have in common?",
+    "punchline": "They are both L-EVADERS!.",
+  },
+  {
+    "id": 403,
+    "type": "anime",
+    "setup": "Y-You can tune a piano..... ",
+    "punchline": "...but you can't tuna fish!",
+  },
+  {
+    "id": 404,
+    "type": "anime",
+    "setup": "What is Mami Tomoe's favorite drink? ",
+    "punchline": ".The Decappuccino",
+  },
+  {
+    "id": 405,
+    "type": "anime",
+    "setup": "How much does a full metal alchemist boxset cost? ",
+    "punchline": "An Arm and a Leg",
+  },
+  {
+    "id": 406,
+    "type": "anime",
+    "setup": "Luffy- I wanted another piece of pizza.",
+    "punchline": "But she said i could only have 'One piece' ",
+  },
+  {
+    "id": 407,
+    "type": "anime",
+    "setup": "What is wailord's favorite tv show ?",
+    "punchline": "Whale of Forutne",
+  },
+  {
+    "id": 408,
+    "type": "anime",
+    "setup": "What is your favorite subject things to do?",
+    "punchline": "Hmm....my best is sleeping, but I think it's eating.",
+  },
+  {
+    "id": 409,
+    "type": "anime",
+    "setup": "Why there is no sign of life on mars?",
+    "punchline":
+      "SAITAMA has been to mars before That’s why there's no sign of life",
+  },
+  {
+    "id": 410,
+    "type": "anime",
+    "setup": "What's a Ghoul's favorite drink?",
+    "punchline": "Human blood!",
+  },
+  {
+    "id": 411,
+    "type": "anime",
+    "setup": "What is a pokemon fan's favorite place in France?",
+    "punchline": "PARAS",
+  },
+  {
+    "id": 412,
+    "type": "anime",
+    "setup": "Tokyo Ghoul - You KEN run",
+    "punchline": "But you can't HIDE",
+  },
+  {
+    "id": 413,
+    "type": "anime",
+    "setup": "What is wailord's favorite tv show ?",
+    "punchline": "Whale of Forutne",
+  },
+  {
+    "id": 414,
+    "type": "anime",
+    "setup": "Misa- I would never dream of a world without Ligt!",
+    "punchline": "L: Yes, that would be dark.",
+  },
+  {
+    "id": 415,
+    "type": "anime",
+    "setup": "What's SAITAMA favorite nose?",
+    "punchline": "GENOS",
+  },
+  {
+    "id": 416,
+    "type": "anime",
+    "setup": "pokemon - why don’t you just pretend you're a tree and leave?",
+    "punchline": "oh funny ! who told you that one? Professor Oak?",
+  },
+  {
+    "id": 417,
+    "type": "anime",
+    "setup": "Where does Kagome Higurashi clean her clothes?",
+    "punchline": "Inu-Washa",
+  },
+  {
+    "id": 418,
+    "type": "anime",
+    "setup": "The phrase that wouldn't go away",
+    "punchline": "Senpai..... Noticed Me!",
+  },
+  {
+    "id": 419,
+    "type": "anime",
+    "setup": "Teacher - school, do you know the definition of it?",
+    "punchline": "School= No anime for 7 hours",
+  },
+
+  {
+    "id": 420,
+    "type": "anime",
+    "setup":
+      "How many Dragon Ball Z characters does it take to screw in a Light Bulb?",
+    "punchline": "Just One! But it'll take 6 episodes.",
+  },
+  {
+    "id": 421,
+    "type": "anime",
+    "setup": "He definitely won't get wet ! OH NO, it's raining.",
+    "punchline": "K know! I'll use my trusty frying pan as a drying pan!",
+  },
+  {
+    "id": 422,
+    "type": "general",
+    "setup": "How good are you at Power Point?",
+    "punchline": "I Excel at it.",
+  },
+  {
+    "id": 423,
+    "type": "food",
+    "setup": "Why did the rooster cross the road?",
+    "punchline": "He heard that the chickens at KFC were pretty hot.",
+  },
+  {
+    "id": 424,
+    "type": "general",
+    "setup":
+      "The Sergeant-Major growled at the young soldier: I didn’t see you at camouflage training this morning.",
+    "punchline": "Thank you very much, sir.",
+  },
+  {
+    "id": 425,
+    "type": "dad",
+    "setup": "Why don't eggs tell jokes?",
+    "punchline": "Because they would crack each other up.",
+  },
+  {
+    "id": 426,
+    "type": "programming",
+    "setup": "What did the array say after it was extended?",
+    "punchline": "Stop objectifying me.",
+  },
+  {
+    "id": 426,
+    "type": "programming",
+    "setup": "Where did the API go to eat?",
+    "punchline": "To the RESTaurant.",
+  },
+  {
+    "id": 427,
+    "type": "programming",
+    "setup": "What goes after USA?",
+    "punchline": "USB.",
   },
 ];

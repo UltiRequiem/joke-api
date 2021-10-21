@@ -1,5 +1,10 @@
 import { handelify } from "./utils.ts";
-import { randomJoke, randomJokesByType, randomQuantityJokes } from "../mod.ts";
+import {
+  jokeById,
+  randomJoke,
+  randomJokesByType,
+  randomQuantityJokes,
+} from "../mod.ts";
 import { json, PathParams, validateRequest } from "./deps.ts";
 
 const randomJokeHandler = handelify(randomJoke);
@@ -41,6 +46,21 @@ export async function randomJokesByTypeHandler(
       params?.quantity as number | undefined,
     ),
   );
+}
+
+export async function jokeByIdHandler(
+  request: Request,
+  params: PathParams,
+) {
+  const { error } = await validateRequest(request, {
+    GET: {},
+  });
+
+  if (error) {
+    return json({ error: error.message }, { status: error.status });
+  }
+
+  return json(jokeById(Number(params?.number)));
 }
 
 export { notFoundHandler, randomJokeHandler };

@@ -11,7 +11,7 @@
 
 > https://joke.deno.dev
 
-Get A random joke in this format:
+Returns a random joke in this format:
 
 ```json
 {
@@ -68,11 +68,15 @@ Returns an array with all the jokes whith the type `{subject}`.
 ]
 ```
 
+> There are a lot more programming jokes than these, I don't add them because I
+> don't want a huge readme.
+
 ### `GET /type/{subject}/{number}`
 
 > https://joke.deno.dev/type/programming/1
 
-Returns an array of the jokes whith the type `{subject}` and the length `{number}`.
+Returns an array of the jokes whith the type `{subject}` and the length
+`{number}`.
 
 ```json
 [
@@ -93,9 +97,13 @@ TODO
 
 ## How the Jokes were collected
 
-The majority of these Jokes comes from [15Dkatz/official_joke_api](https://github.com/15Dkatz/official_joke_api),
-the problem with that project is that its [server is down](https://github.com/15Dkatz/official_joke_api/issues/93),
-and it [has not been updated for 2 years](https://github.com/15Dkatz/official_joke_api/commits/master).
+The first 300 Jokes comes from
+[15Dkatz/official_joke_api](https://github.com/15Dkatz/official_joke_api), the
+problem with that project is that its
+[server is down](https://github.com/15Dkatz/official_joke_api/issues/93), and it
+[has not been updated for 2 years](https://github.com/15Dkatz/official_joke_api/commits/master).
+
+The other jokes were progressively added by the [contributors of the project](https://github.com/UltiRequiem/joke/graphs/contributors).
 
 ## Contributing
 

@@ -42,4 +42,8 @@ export function randomJokeByType(type: string) {
   return randomJokesByType(type, 1)[0];
 }
 
+export function jokeById(id: number) {
+  return JOKES.filter((jk) => jk.id === id)[0];
+}
+
 export default randomJoke;
