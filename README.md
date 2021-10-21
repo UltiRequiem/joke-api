@@ -72,7 +72,7 @@ Returns an array with all the jokes whith the type `{subject}`.
 
 > https://joke.deno.dev/type/programming/1
 
-Returns an array of the jokes whith the type `{subject}` and the length `number`.
+Returns an array of the jokes whith the type `{subject}` and the length `{number}`.
 
 ```json
 [
@@ -90,6 +90,26 @@ Check the [docs](./docs/API.md) for other endpoints and code snippets of usage.
 ## Library
 
 TODO
+
+## How the Jokes were collected
+
+The majority of these Jokes comes from [15Dkatz/official_joke_api](https://github.com/15Dkatz/official_joke_api),
+the problem with that project is that its [server is down](https://github.com/15Dkatz/official_joke_api/issues/93),
+and it [has not been updated for 2 years](https://github.com/15Dkatz/official_joke_api/commits/master).
+
+## Contributing
+
+Submit a Pull Request, with your joke added to the [data.ts](./data.ts) file.
+Make sure the joke is in this format:
+
+```typescript
+{
+  "id": last joke id + 1,
+  "type": "programming",
+  "setup": "What's the best thing about a Boolean?",
+  "punchline": "Even if you're wrong, you're only off by a bit."
+}
+```
 
 ## License
 
