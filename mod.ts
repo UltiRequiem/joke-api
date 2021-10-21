@@ -1,5 +1,5 @@
-import { JOKES } from "../data.ts";
-import type { Joke } from "../data.ts";
+import { JOKES } from "./data.ts";
+import type { Joke } from "./data.ts";
 
 export function randomJoke() {
   return JOKES[Math.floor(Math.random() * JOKES.length)];

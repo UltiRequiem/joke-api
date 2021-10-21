@@ -1,5 +1,5 @@
 import { handelify } from "./utils.ts";
-import { jokeByType, randomJoke, randomNJokes } from "../pkg/mod.ts";
+import { jokeByType, randomJoke, randomNJokes } from "../mod.ts";
 import { json, validateRequest } from "./deps.ts";
 
 const randomJokeHandler = handelify(randomJoke);
