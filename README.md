@@ -89,6 +89,21 @@ Returns an array of the jokes whith the type `{subject}` and the length
 ]
 ```
 
+### `GET /id/{number}`
+
+> https://joke.deno.dev/id/425
+
+Returns a joke whith the id `{number}`.
+
+```json
+{
+  "id": 425,
+  "type": "dad",
+  "setup": "Why don't eggs tell jokes?",
+  "punchline": "Because they would crack each other up."
+}
+```
+
 Check the [docs](./docs/API.md) for other endpoints and code snippets of usage.
 
 ## Library
@@ -103,7 +118,8 @@ problem with that project is that its
 [server is down](https://github.com/15Dkatz/official_joke_api/issues/93), and it
 [has not been updated for 2 years](https://github.com/15Dkatz/official_joke_api/commits/master).
 
-The other jokes were progressively added by the [contributors of the project](https://github.com/UltiRequiem/joke/graphs/contributors).
+The other jokes were progressively added by
+[contributors](https://github.com/UltiRequiem/joke/graphs/contributors).
 
 ## Contributing
 
@@ -118,6 +134,10 @@ Make sure the joke is in this format:
   "punchline": "Even if you're wrong, you're only off by a bit."
 }
 ```
+
+If you have an idea for a new endpoint, submit an
+[Issue](https://github.com/UltiRequiem/joke/issues/new) or a
+[Pull Request](https://github.com/UltiRequiem/joke/fork).
 
 ## License
 
