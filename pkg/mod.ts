@@ -28,8 +28,14 @@ export function randomNJokes(n: number) {
   return randomN(JOKES, n);
 }
 
-export function jokeByType(type: string, n: number) {
-  return randomN(JOKES.filter((joke) => joke.type === type), n);
+export function jokeByType(type: string, n?: number) {
+  const filtredJokes = JOKES.filter((joke) => joke.type === type);
+
+  if (typeof n === "undefined") {
+    n = filtredJokes.length;
+  }
+
+  return randomN(filtredJokes, n);
 }
 
 export default {
