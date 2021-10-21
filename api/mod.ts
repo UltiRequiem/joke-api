@@ -2,6 +2,7 @@ import { serve } from "./deps.ts";
 
 import {
   jokeByIdHandler,
+  jokesCategoriesHandler,
   notFoundHandler,
   randomJokeHandler,
   randomJokeHandlerQuantity,
@@ -14,5 +15,6 @@ serve({
   "/id/:number": jokeByIdHandler,
   "/type/:type/:quantity": randomJokesByTypeHandler,
   "/type/:type": randomJokesByTypeHandler,
+  "/categories": jokesCategoriesHandler,
   404: notFoundHandler,
 });

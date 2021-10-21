@@ -1,12 +1,15 @@
 import { handelify } from "./utils.ts";
 import randomJoke, {
   jokeByID,
+  jokesCategories,
   randomJokesByType,
   randomQuantityJokes,
 } from "../mod.ts";
 import { json, PathParams, validateRequest } from "./deps.ts";
 
 const randomJokeHandler = handelify(randomJoke);
+
+const jokesCategoriesHandler = handelify(jokesCategories);
 
 const notFoundHandler = handelify(() => {
   return { status: 404, error: "Route not found." };
@@ -62,4 +65,4 @@ export async function jokeByIdHandler(
   return json(jokeByID(Number(params?.number)));
 }
 
-export { notFoundHandler, randomJokeHandler };
+export { jokesCategoriesHandler, notFoundHandler, randomJokeHandler };

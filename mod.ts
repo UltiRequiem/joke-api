@@ -46,6 +46,19 @@ export function randomJokesByType(type: string, n?: number) {
   return randomN(filtredJokes, n);
 }
 
+export function jokesCategories() {
+  const jokesCategories = new Set();
+
+  for (let i = 0; i < JOKES.length; i++) {
+    const currentCategory = JOKES[i].type;
+    if (!jokesCategories.add(currentCategory)) {
+      jokesCategories.add(currentCategory);
+    }
+  }
+
+  return Array.from(jokesCategories);
+}
+
 export function randomJokeByType(type: string) {
   return randomJokesByType(type, 1)[0];
 }
