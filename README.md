@@ -1,9 +1,11 @@
-# Jokes 😜
+# Joke 😜
 
 [![GitMoji](https://img.shields.io/badge/Gitmoji-%F0%9F%8E%A8%20-FFDD67.svg)](https://gitmoji.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Total Lines Of Code](https://img.shields.io/tokei/lines/github.com/UltiRequiem/joke?color=blue&label=Total%20Lines)
 ![CI](https://github.com/UltiRequiem/joke/workflows/CI/badge.svg)
+
+An API and Library of Jokes.
 
 ## API
 
@@ -109,7 +111,15 @@ this API and code snippets of usage.
 
 ## Library
 
-TODO
+```typescript
+import randomJoke, { randomJokeByType } from "https://deno.land/x/joke/mod.ts";
+
+console.log(randomJoke());
+console.log(randomJokesByType("general"));
+```
+
+Check the [docs](./docs/LIB.md) to know all the exported functions and check the
+[tests](./mod_test.ts) for more usage examples.
 
 ## How the Jokes were collected
 
