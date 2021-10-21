@@ -123,8 +123,8 @@ The other jokes were progressively added by
 
 ## Contributing
 
-Submit a Pull Request, with your joke added to the [data.ts](./data.ts) file.
-Make sure the joke is in this format:
+Submit a Pull Request, with your joke added to the [data.ts](./data.ts). Make
+sure your joke is in this format:
 
 ```typescript
 {

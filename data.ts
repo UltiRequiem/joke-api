@@ -1097,12 +1097,6 @@ export const JOKES: Joke[] = [
   {
     "id": 189,
     "type": "general",
-    "setup": "What did the mountain climber name his son?",
-    "punchline": "Cliff.",
-  },
-  {
-    "id": 189,
-    "type": "general",
     "setup": "What did the ocean say to the beach?",
     "punchline": "Thanks for all the sediment.",
   },
@@ -2548,13 +2542,13 @@ export const JOKES: Joke[] = [
     "punchline": "Stop objectifying me.",
   },
   {
-    "id": 426,
+    "id": 427,
     "type": "programming",
     "setup": "Where did the API go to eat?",
     "punchline": "To the RESTaurant.",
   },
   {
-    "id": 427,
+    "id": 428,
     "type": "programming",
     "setup": "What goes after USA?",
     "punchline": "USB.",

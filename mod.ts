@@ -5,6 +5,10 @@ export function randomJoke() {
   return JOKES[Math.floor(Math.random() * JOKES.length)];
 }
 
+export function getAllJokes(): Joke[] {
+  return JOKES;
+}
+
 function randomN(jokeArray: Joke[], n: number): Joke[] {
   if (n > jokeArray.length) {
     throw new RangeError(

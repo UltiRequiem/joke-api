@@ -1,6 +1,7 @@
 import { assertEquals } from "https://deno.land/std@0.112.0/testing/asserts.ts";
 
 import randomJoke, {
+  getAllJokes,
   randomJokeByType,
   randomJokesByType,
   randomQuantityJokes,
@@ -24,4 +25,15 @@ Deno.test("Test Random Jokes By Type", () => {
 
 Deno.test("Check Legnth of randomNJokes", () => {
   assertEquals(randomQuantityJokes(3).length, 3);
+});
+
+Deno.test("Check if there are repeated ID's", () => {
+  const jokes = getAllJokes();
+  const ids = new Set();
+
+  for (let index = 0; index < jokes.length; index++) {
+    const currentId = jokes[index].id;
+    if (ids.has(currentId)) throw new Error(`ID ${currentId} is repeated!`);
+    ids.add(currentId);
+  }
 });
