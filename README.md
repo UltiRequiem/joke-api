@@ -104,7 +104,8 @@ Returns a joke whith the id `{number}`.
 }
 ```
 
-Check the [docs](./docs/API.md) for other endpoints and code snippets of usage.
+Check the [docs](./docs/API.md) for language-specific wrappers, projects using
+this API and code snippets of usage.
 
 ## Library
 
