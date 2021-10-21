@@ -7,9 +7,7 @@ import randomJoke, {
 } from "../mod.ts";
 import { json, PathParams, validateRequest } from "./deps.ts";
 
-const randomJokeHandler = handelify(() => {
-  return { categories: jokesCategories() };
-});
+const randomJokeHandler = handelify(randomJoke);
 
 const jokesCategoriesHandler = handelify(jokesCategories);
 
