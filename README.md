@@ -106,6 +106,16 @@ Returns a joke whith the id `{number}`.
 }
 ```
 
+### `GET /categories/all`
+
+> https://joke.deno.dev/categories/all
+
+Returns all the available jokes categories.
+
+```json
+["general", "knock-knock", "programming", "anime", "food", "dad"]
+```
+
 Check the [docs](./docs/API.md) for language-specific wrappers, projects using
 this API and code snippets of usage.
 
@@ -124,8 +134,9 @@ Check the [docs](./docs/LIB.md) to know all the exported functions and check the
 ## How the Jokes were collected
 
 The first 300 Jokes comes from
-[15Dkatz/official_joke_api](https://github.com/15Dkatz/official_joke_api), the
-problem with that project is that its
+[15Dkatz/official_joke_api](https://github.com/15Dkatz/official_joke_api) (At
+the moment of writting this, this project has 428 jokes.), the problem with that
+project is that its
 [server is down](https://github.com/15Dkatz/official_joke_api/issues/93), and it
 [has not been updated for 2 years](https://github.com/15Dkatz/official_joke_api/commits/master).
 
