@@ -791,7 +791,7 @@ export const JOKES: Joke[] = [
   },
   {
     "id": 130,
-    "type": "General",
+    "type": "general",
     "setup": "How do you make the number one disappear?",
     "punchline": "Add the letter G and it’s “gone”!",
   },

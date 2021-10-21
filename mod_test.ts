@@ -3,6 +3,7 @@ import { assertEquals } from "https://deno.land/std@0.112.0/testing/asserts.ts";
 import randomJoke, {
   allJokes,
   jokeByID,
+  jokesCategories,
   randomJokeByType,
   randomJokesByType,
   randomQuantityJokes,
@@ -43,4 +44,15 @@ Deno.test("Check if there are repeated ID's", () => {
     if (ids.has(currentId)) throw new Error(`ID ${currentId} is repeated!`);
     ids.add(currentId);
   }
+});
+
+Deno.test("Check jokesCategories", () => {
+  assertEquals(jokesCategories(), [
+    "general",
+    "knock-knock",
+    "programming",
+    "anime",
+    "food",
+    "dad",
+  ]);
 });
