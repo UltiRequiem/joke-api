@@ -1,0 +1,14 @@
+name: CI
+
+on: push
+
+jobs:
+  lint:
+    name: CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - run: deno lint && deno test

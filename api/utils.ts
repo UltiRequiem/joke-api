@@ -1,7 +1,7 @@
-import { json, validateRequest } from "./deps.ts";
+import { Handler, json, validateRequest } from "./deps.ts";
 
 // deno-lint-ignore ban-types
-export function handelify(cb: Function) {
+export function handelify(cb: Function): Handler {
   return async (request: Request) => {
     const { error } = await validateRequest(request, {
       GET: {},

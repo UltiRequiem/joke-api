@@ -11,6 +11,6 @@ serve({
   "/": randomJokeHandler,
   "/:quantity": randomJokeHandlerQuantity,
   "/type/:type/:quantity": randomJokesByTypeHandler,
-  "/type/:type/": randomJokesByTypeHandler,
+  "/type/:type": randomJokesByTypeHandler,
   404: notFoundHandler,
 });

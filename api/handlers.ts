@@ -1,6 +1,6 @@
 import { handelify } from "./utils.ts";
-import { randomJokeByType, randomJoke, randomQuantityJokes } from "../mod.ts";
-import { json, validateRequest } from "./deps.ts";
+import { randomJoke, randomJokeByType, randomQuantityJokes } from "../mod.ts";
+import { json, PathParams, validateRequest } from "./deps.ts";
 
 const randomJokeHandler = handelify(randomJoke);
 
@@ -10,8 +10,7 @@ const notFoundHandler = handelify(() => {
 
 export async function randomJokeHandlerQuantity(
   request: Request,
-  // deno-lint-ignore no-explicit-any
-  params: any,
+  params: PathParams,
 ) {
   const { error } = await validateRequest(request, {
     GET: {},
@@ -21,13 +20,12 @@ export async function randomJokeHandlerQuantity(
     return json({ error: error.message }, { status: error.status });
   }
 
-  return json(randomQuantityJokes(params?.quantity as number));
+  return json(randomQuantityJokes(Number(params?.quantity)));
 }
 
 export async function randomJokesByTypeHandler(
   request: Request,
-  // deno-lint-ignore no-explicit-any
-  params: any,
+  params: PathParams,
 ) {
   const { error } = await validateRequest(request, {
     GET: {},
@@ -38,7 +36,10 @@ export async function randomJokesByTypeHandler(
   }
 
   return json(
-    randomJokeByType(params?.type as string, params?.quantity as number | undefined),
+    randomJokeByType(
+      params?.type as string,
+      params?.quantity as number | undefined,
+    ),
   );
 }
 
