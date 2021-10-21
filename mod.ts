@@ -28,7 +28,7 @@ export function randomQuantityJokes(n: number) {
   return randomN(JOKES, n);
 }
 
-export function randomJokeByType(type: string, n?: number) {
+export function randomJokesByType(type: string, n?: number) {
   const filtredJokes = JOKES.filter((joke) => joke.type === type);
 
   if (typeof n === "undefined") {
@@ -36,6 +36,10 @@ export function randomJokeByType(type: string, n?: number) {
   }
 
   return randomN(filtredJokes, n);
+}
+
+export function randomJokeByType(type: string) {
+  return randomJokesByType(type, 1)[0];
 }
 
 export default randomJoke;
