@@ -5,10 +5,10 @@ export function randomJoke() {
   return JOKES[Math.floor(Math.random() * JOKES.length)];
 }
 
-export function randomN(jokeArray: Joke[], n: number): Joke[] {
+function randomN(jokeArray: Joke[], n: number): Joke[] {
   if (n > jokeArray.length) {
     throw new RangeError(
-      `Limit exceeded, got ${n} but the total joke array length is ${jokeArray.length}`,
+      `Limit exceeded, got ${n} but the total joke array length is ${jokeArray.length}.`,
     );
   }
 
@@ -24,11 +24,11 @@ export function randomN(jokeArray: Joke[], n: number): Joke[] {
   return Array.from(jokesSet) as Joke[];
 }
 
-export function randomNJokes(n: number) {
+export function randomQuantityJokes(n: number) {
   return randomN(JOKES, n);
 }
 
-export function jokeByType(type: string, n?: number) {
+export function randomJokeByType(type: string, n?: number) {
   const filtredJokes = JOKES.filter((joke) => joke.type === type);
 
   if (typeof n === "undefined") {
@@ -38,6 +38,4 @@ export function jokeByType(type: string, n?: number) {
   return randomN(filtredJokes, n);
 }
 
-export default {
-  randomJoke,
-};
+export default randomJoke;
