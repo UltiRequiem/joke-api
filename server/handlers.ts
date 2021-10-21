@@ -37,7 +37,9 @@ export async function randomJokesByTypeHandler(
     return json({ error: error.message }, { status: error.status });
   }
 
-  return json(jokeByType(params?.type as string, params?.quantity as number));
+  return json(
+    jokeByType(params?.type as string, params?.quantity as number | undefined),
+  );
 }
 
 export { notFoundHandler, randomJokeHandler };
