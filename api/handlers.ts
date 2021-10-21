@@ -1,5 +1,5 @@
 import { handelify } from "./utils.ts";
-import { randomJoke, randomJokeByType, randomQuantityJokes } from "../mod.ts";
+import { randomJoke, randomJokesByType, randomQuantityJokes } from "../mod.ts";
 import { json, PathParams, validateRequest } from "./deps.ts";
 
 const randomJokeHandler = handelify(randomJoke);
@@ -36,7 +36,7 @@ export async function randomJokesByTypeHandler(
   }
 
   return json(
-    randomJokeByType(
+    randomJokesByType(
       params?.type as string,
       params?.quantity as number | undefined,
     ),
