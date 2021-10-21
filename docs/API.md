@@ -74,4 +74,5 @@ You can add examples of your favorite programming language.
 
 ## Projects Using this API
 
-No one at the moment.
+No one at the moment, if you are using this API in your project, you can make a
+pull request and add it here.

@@ -1,12 +1,16 @@
 import { JOKES } from "./data.ts";
 import type { Joke } from "./data.ts";
 
-export function randomJoke() {
+export default function randomJoke() {
   return JOKES[Math.floor(Math.random() * JOKES.length)];
 }
 
-export function getAllJokes(): Joke[] {
+export function allJokes(): Joke[] {
   return JOKES;
+}
+
+export function jokeByID(id: number) {
+  return JOKES.filter((jk) => jk.id === id)[0];
 }
 
 function randomN(jokeArray: Joke[], n: number): Joke[] {
@@ -45,9 +49,3 @@ export function randomJokesByType(type: string, n?: number) {
 export function randomJokeByType(type: string) {
   return randomJokesByType(type, 1)[0];
 }
-
-export function jokeById(id: number) {
-  return JOKES.filter((jk) => jk.id === id)[0];
-}
-
-export default randomJoke;

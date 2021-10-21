@@ -1,7 +1,6 @@
 import { handelify } from "./utils.ts";
-import {
-  jokeById,
-  randomJoke,
+import randomJoke, {
+  jokeByID,
   randomJokesByType,
   randomQuantityJokes,
 } from "../mod.ts";
@@ -60,7 +59,7 @@ export async function jokeByIdHandler(
     return json({ error: error.message }, { status: error.status });
   }
 
-  return json(jokeById(Number(params?.number)));
+  return json(jokeByID(Number(params?.number)));
 }
 
 export { notFoundHandler, randomJokeHandler };
