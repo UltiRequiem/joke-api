@@ -17,10 +17,10 @@ Returns a random joke in this format:
 
 ```json
 {
-  "id": 229,
-  "type": "general",
-  "setup": "What do you call an alligator in a vest?",
-  "punchline": "An in-vest-igator!"
+	"id": 229,
+	"type": "general",
+	"setup": "What do you call an alligator in a vest?",
+	"punchline": "An in-vest-igator!"
 }
 ```
 
@@ -32,18 +32,18 @@ Returns an array of jokes with the length of `{number}`.
 
 ```json
 [
-  {
-    "id": 20,
-    "type": "general",
-    "setup": "What do you call a laughing motorcycle?",
-    "punchline": "A Yamahahahaha."
-  },
-  {
-    "id": 272,
-    "type": "general",
-    "setup": "What lies atthe bottom of the ocean and twitches?",
-    "punchline": "A nervous wreck."
-  }
+	{
+		"id": 20,
+		"type": "general",
+		"setup": "What do you call a laughing motorcycle?",
+		"punchline": "A Yamahahahaha."
+	},
+	{
+		"id": 272,
+		"type": "general",
+		"setup": "What lies atthe bottom of the ocean and twitches?",
+		"punchline": "A nervous wreck."
+	}
 ]
 ```
 
@@ -55,18 +55,18 @@ Returns an array with all the jokes whith the type `{subject}`.
 
 ```json
 [
-  {
-    "id": 33,
-    "type": "programming",
-    "setup": "Which song would an exception sing?",
-    "punchline": "Can't catch me - Avicii"
-  },
-  {
-    "id": 28,
-    "type": "programming",
-    "setup": "To understand what recursion is...",
-    "punchline": "You must first understand what recursion is"
-  }
+	{
+		"id": 33,
+		"type": "programming",
+		"setup": "Which song would an exception sing?",
+		"punchline": "Can't catch me - Avicii"
+	},
+	{
+		"id": 28,
+		"type": "programming",
+		"setup": "To understand what recursion is...",
+		"punchline": "You must first understand what recursion is"
+	}
 ]
 ```
 
@@ -82,12 +82,12 @@ Returns an array of the jokes whith the type `{subject}` and the length
 
 ```json
 [
-  {
-    "id": 56,
-    "type": "programming",
-    "setup": "How do you check if a webpage is HTML5?",
-    "punchline": "Try it out on Internet Explorer"
-  }
+	{
+		"id": 56,
+		"type": "programming",
+		"setup": "How do you check if a webpage is HTML5?",
+		"punchline": "Try it out on Internet Explorer"
+	}
 ]
 ```
 
@@ -99,10 +99,10 @@ Returns a joke whith the id `{number}`.
 
 ```json
 {
-  "id": 425,
-  "type": "dad",
-  "setup": "Why don't eggs tell jokes?",
-  "punchline": "Because they would crack each other up."
+	"id": 425,
+	"type": "dad",
+	"setup": "Why don't eggs tell jokes?",
+	"punchline": "Because they would crack each other up."
 }
 ```
 
@@ -122,10 +122,10 @@ this API and code snippets of usage.
 ## Library
 
 ```typescript
-import randomJoke, { randomJokeByType } from "https://deno.land/x/joke/mod.ts";
+import randomJoke, { randomJokeByType } from 'https://deno.land/x/joke/mod.ts';
 
 console.log(randomJoke());
-console.log(randomJokesByType("general"));
+console.log(randomJokesByType('general'));
 ```
 
 Check the [docs](./docs/LIB.md) to know all the exported functions and check the
