@@ -1,7 +1,8 @@
 import { fauna } from "./fauna.ts";
-import type { Joke } from "../types.ts";
 
-import { gql } from "../util.ts";
+import { gql } from "../utils/mod.ts";
+
+import type { Joke } from "../definitions.ts";
 
 export async function createJoke(joke: Joke) {
   const query = gql`
@@ -16,5 +17,5 @@ export async function createJoke(joke: Joke) {
     }
   `;
 
-  return await fauna<Joke>(query, joke);
+  return fauna<Joke>(query, joke);
 }

@@ -1,6 +1,6 @@
 export const JokeCategories = [
   "general",
-  "knock-knock",
+  "knock",
   "programming",
   "anime",
   "food",
