@@ -1,9 +1,9 @@
-export type Joke = {
+export interface Joke {
 	id: number;
 	type: string;
 	setup: string;
 	punchline: string;
-};
+}
 
 export const JOKES: Joke[] = [
 	{
