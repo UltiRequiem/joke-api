@@ -9,6 +9,12 @@ export const JokeCategories = [
 
 export type JokeCategory = typeof JokeCategories[number];
 
+export function isJokeCategory(
+  value: string | JokeCategory
+): value is JokeCategory {
+  return JokeCategories.includes(value as JokeCategory);
+}
+
 export type Joke = {
   category: JokeCategory;
   setup: string;
