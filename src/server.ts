@@ -6,7 +6,7 @@ const repo = new Repository();
 
 const app = new Application();
 
-app.use(async(ctx) => {
+app.use(async (ctx) => {
   ctx.response.body = await repo.allJokes();
 });
 

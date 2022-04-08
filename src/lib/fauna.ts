@@ -19,7 +19,7 @@ export class FaunaDBError extends Error {
 
 export async function fauna<T>(
   query: string,
-  variables: { [key: string]: unknown } = {}
+  variables: { [key: string]: unknown } = {},
 ) {
   const res = await fetch("https://graphql.fauna.com/graphql", {
     method: "POST",

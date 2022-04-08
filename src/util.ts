@@ -11,4 +11,3 @@ export function gql(
 
   return parts.join("");
 }
-

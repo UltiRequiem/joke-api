@@ -27,9 +27,6 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: deno lint
 
-      - name: Bundle
-        run: deno bundle server.ts server.bundle.js
-
       - name: Tests
         run: deno test --allow-net --coverage=./cov
 
