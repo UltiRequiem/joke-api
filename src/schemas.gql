@@ -1,0 +1,19 @@
+type Joke {
+  category: String!
+  setup: String!
+  punchline: String!
+}
+
+type Query {
+  allJokes: [Joke!]
+  findJokesByCategory(category: JokeCategory!): [Joke!]
+}
+
+enum JokeCategory {
+  general
+  programming
+  anime
+  knock
+  food
+  dad
+}

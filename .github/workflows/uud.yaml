@@ -3,7 +3,7 @@ name: update-deno-dependencies
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 1 * *"
 
 jobs:
   udd:
@@ -18,12 +18,12 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: "chore(deps): update deno dependencies"
+          commit-message: ":arrow_up: update deno dependencies"
           title: Update Deno Dependencies
           body: >
             Automated updates by [deno-udd](https://github.com/hayd/deno-udd)
             and [create-pull-request](https://github.com/peter-evans/create-pull-request)
-            GitHub action
+            GitHub action.
           branch: update-deno-dependencies
           author: GitHub <noreply@github.com>
           delete-branch: true
