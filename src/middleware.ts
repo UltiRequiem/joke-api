@@ -1,6 +1,11 @@
 import type { RouterMiddleware, Middleware } from "../deps.ts";
 
-import { findJokesByCategory, isJokeCategory, allJokes } from "./lib/mod.ts";
+import {
+  findJokesByCategory,
+  isJokeCategory,
+  allJokes,
+  JokeCategories,
+} from "./lib/mod.ts";
 
 export const CategoryMiddleware: RouterMiddleware<"/:category"> = async (
   context,
@@ -14,6 +19,12 @@ export const CategoryMiddleware: RouterMiddleware<"/:category"> = async (
 
   const jokes = await findJokesByCategory(category);
   context.response.body = jokes;
+};
+
+export const CategoriesMiddleware: RouterMiddleware<"/categories"> = async (
+  context
+) => {
+  context.response.body = JokeCategories;
 };
 
 export const AllJokesMiddleware: RouterMiddleware<"/"> = async (context) => {
