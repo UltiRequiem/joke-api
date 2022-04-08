@@ -1,13 +1,9 @@
-import { Application } from "./deps.ts";
-
-import { Repository } from "./lib/mod.ts";
-
-const repo = new Repository();
+import { Application } from "../deps.ts";
 
 const app = new Application();
 
-app.use(async (ctx) => {
-  ctx.response.body = await repo.allJokes();
+app.use((ctx) => {
+  ctx.response.body = [1, 2, 3];
 });
 
 app.listen({ port: 8000 });

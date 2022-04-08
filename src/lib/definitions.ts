@@ -14,3 +14,5 @@ export type Joke = {
   setup: string;
   punchline: string;
 };
+
+export type Jokes = Joke[];

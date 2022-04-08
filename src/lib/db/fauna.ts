@@ -17,8 +17,13 @@ export class FaunaDBError extends Error {
   }
 }
 
-export async function fauna<T>(query: string, variables: unknown = {}) {
-  const res = await fetch("https://graphql.fauna.com/graphql", {
+export const GRAPHQL_ENDPOINT = "https://graphql.fauna.com/graphql";
+
+export async function fauna<T>(
+  query: string,
+  variables: { [key: string]: unknown } = {},
+) {
+  const response = await fetch(GRAPHQL_ENDPOINT, {
     method: "POST",
     headers: {
       authorization: `Bearer ${token}`,
@@ -30,7 +35,11 @@ export async function fauna<T>(query: string, variables: unknown = {}) {
     }),
   });
 
-  const { data, errors } = await res.json();
+  if (!response.ok) {
+    throw new FaunaDBError(`${response.status} ${response.statusText}`);
+  }
+
+  const { data, errors } = await response.json();
 
   if (errors) {
     const errorMessage = errors.map((error: Error) => error.message).join("\n");
