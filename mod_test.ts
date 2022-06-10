@@ -1,4 +1,4 @@
-import { assertEquals } from 'https://deno.land/std@0.142.0/testing/asserts.ts';
+import { assertEquals } from 'https://deno.land/std@0.143.0/testing/asserts.ts';
 
 import randomJoke, {
 	allJokes,
