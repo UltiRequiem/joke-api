@@ -1,4 +1,4 @@
-import { JOKES, type Joke } from "./data.ts";
+import { type Joke, JOKES } from "./data.ts";
 
 export default function randomJoke() {
   return JOKES[Math.floor(Math.random() * JOKES.length)];
@@ -15,7 +15,7 @@ export function jokeByID(id: number) {
 function randomN(jokeArray: Joke[], n: number): Joke[] {
   if (n > jokeArray.length) {
     throw new RangeError(
-      `Limit exceeded, got ${n} but the total joke array length is ${jokeArray.length}.`
+      `Limit exceeded, got ${n} but the total joke array length is ${jokeArray.length}.`,
     );
   }
 
