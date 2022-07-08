@@ -5,7 +5,7 @@ export interface Joke {
   punchline: string;
 }
 
-export const JOKES: Joke[] = [
+export const jokes: Joke[] = [
   {
     id: 1,
     type: "general",
