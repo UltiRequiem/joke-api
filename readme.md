@@ -11,8 +11,6 @@ on [Deno Deploy](https://deno.com/deploy/docs) 🦕 🚀
 
 > https://joke.deno.dev
 
-Returns a random joke in this format:
-
 ```json
 {
   "id": 229,
