@@ -2,6 +2,9 @@
 
 ![CI](https://github.com/UltiRequiem/joke/workflows/CI/badge.svg)
 
+A blazing fast Jokes REST API made with [Oak](https://github.com/oakserver/oak)
+on [Deno Deploy](https://deno.com/deploy/docs) 🦕 🚀
+
 ## API
 
 ### `GET /`
@@ -18,3 +21,7 @@ Returns a random joke in this format:
   "punchline": "An in-vest-igator!"
 }
 ```
+
+## Licence
+
+Licensed under the MIT License 📄
