@@ -9,10 +9,6 @@ export const RootMiddleware: RouterMiddleware<"/"> = (ctx) => {
 export const NumberMiddleware: RouterMiddleware<"/:id"> = (ctx) => {
   const id = parseInt(ctx.params.id);
 
-  if (Number.isNaN(id)) {
-    throw new CustomPublicError(`ID: "${id}" is not valid.`);
-  }
-
   const joke = jokes.find((joke) => joke.id === id);
 
   if (!joke) {

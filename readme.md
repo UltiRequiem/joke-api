@@ -38,6 +38,24 @@ Did you like a joke? Get the same whenever you want 🦀
 }
 ```
 
+### `GET /type/:type`
+
+> https://joke.deno.dev/type/programming
+
+Looking for a specific type of jokes? You're lucky 🐌
+
+```json
+[
+  {
+    "id": 423,
+    "type": "food",
+    "setup": "Why did the rooster cross the road?",
+    "punchline": "He heard that the chickens at KFC were pretty hot."
+  },
+  ...
+]
+```
+
 ## Licence
 
 Licensed under the MIT License 📄
