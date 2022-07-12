@@ -64,6 +64,24 @@ Looking for a specific type of jokes? You're lucky 🐌
 
 All available types are listed on `GET /type` 🕵️‍♂️
 
+## Contributing
+
+Submit a Pull Request, with your joke added to the `server/data.ts` file. Make
+sure your joke is in this format:
+
+```typescript
+{
+  "id": last joke id + 1,
+  "type": "programming",
+  "setup": "What's the best thing about a Boolean?",
+  "punchline": "Even if you're wrong, you're only off by a bit."
+}
+```
+
+If you have an idea for a new endpoint, submit an
+[issue](https://github.com/UltiRequiem/joke-api/issues/new) or a
+[pull request](https://github.com/UltiRequiem/joke-api/fork).
+
 ## Licence
 
 Licensed under the MIT License 📄
