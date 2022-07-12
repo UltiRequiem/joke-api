@@ -47,14 +47,22 @@ Looking for a specific type of jokes? You're lucky 🐌
 ```json
 [
   {
-    "id": 423,
-    "type": "food",
-    "setup": "Why did the rooster cross the road?",
-    "punchline": "He heard that the chickens at KFC were pretty hot."
+    "id": 15,
+    "type": "programming",
+    "setup": "What's the best thing about a Boolean?",
+    "punchline": "Even if you're wrong, you're only off by a bit."
+  },
+  {
+    "id": 16,
+    "type": "programming",
+    "setup": "What's the object-oriented way to become wealthy?",
+    "punchline": "Inheritance"
   },
   ...
 ]
 ```
+
+All available types are listed on `GET /type` 🕵️‍♂️
 
 ## Licence
 
