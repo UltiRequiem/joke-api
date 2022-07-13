@@ -7,6 +7,10 @@ export const RootMiddleware: RouterMiddleware<"/"> = (ctx) => {
   ctx.response.body = randomItem(jokes);
 };
 
+export const AllMiddleware: RouterMiddleware<"/all"> = (ctx) => {
+  ctx.response.body = jokes;
+};
+
 export const NumberMiddleware: RouterMiddleware<"/:id"> = (ctx) => {
   const id = parseInt(ctx.params.id);
 

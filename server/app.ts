@@ -1,5 +1,6 @@
 import { Application, Router } from "./deps.ts";
 import {
+  AllMiddleware,
   AllTypesMiddleware,
   ErrorsMiddleware,
   NOCORSMiddleware,
@@ -13,6 +14,7 @@ const app = new Application();
 
 const router = new Router();
 
+router.get("/all", AllMiddleware);
 router.get("/type", AllTypesMiddleware);
 
 router.get("/:id", NumberMiddleware);
