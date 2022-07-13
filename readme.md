@@ -64,6 +64,23 @@ Looking for a specific type of jokes? You're lucky 🐌
 
 All available types are listed on `GET /type` 🕵️‍♂️
 
+### `GET /type/:type/:quantity`
+
+Looking for a specific amount of a specific type of jokes? We got you covered 🐿
+
+> https://joke.deno.dev/type/general/1
+
+```json
+[
+  {
+    "id": 90,
+    "type": "general",
+    "setup": "Did you hear about the guy who invented Lifesavers?",
+    "punchline": "They say he made a mint."
+  }
+]
+```
+
 ## Contributing
 
 Submit a Pull Request, with your joke added to the `server/data.ts` file. Make

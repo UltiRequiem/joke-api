@@ -6,6 +6,7 @@ import {
   NumberMiddleware,
   RootMiddleware,
   TypeMiddleware,
+  TypeQuantityMiddleware,
 } from "./middleware.ts";
 
 const app = new Application();
@@ -17,6 +18,7 @@ router.get("/type", AllTypesMiddleware);
 router.get("/:id", NumberMiddleware);
 
 router.get("/type/:type", TypeMiddleware);
+router.get("/type/:type/:quanity", TypeQuantityMiddleware);
 router.get("/", RootMiddleware);
 
 app.use(NOCORSMiddleware);

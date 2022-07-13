@@ -1,5 +1,6 @@
 import { Middleware, randomItem, type RouterMiddleware } from "./deps.ts";
 import { CustomPublicError } from "./error.ts";
+import { randomUniqueItems } from "./utils.ts";
 import { jokes, jokesByType, jokeTypes } from "./data.ts";
 
 export const RootMiddleware: RouterMiddleware<"/"> = (ctx) => {
@@ -30,6 +31,23 @@ export const TypeMiddleware: RouterMiddleware<"/type/:type"> = (ctx) => {
   }
 
   ctx.response.body = jokesByType[type];
+};
+
+export const TypeQuantityMiddleware: RouterMiddleware<
+  "/type/:type/:quanity"
+> = (ctx) => {
+  const { type, quanity } = ctx.params;
+
+  if (!(type in jokesByType)) {
+    throw new CustomPublicError(`Joke category with type "${type}" not found.`);
+  }
+
+  try {
+    const data = randomUniqueItems(jokesByType[type], +quanity);
+    ctx.response.body = data;
+  } catch (error) {
+    throw new CustomPublicError(`${error.message} on category "${type}".`);
+  }
 };
 
 export const NOCORSMiddleware: Middleware = (ctx, next) => {
