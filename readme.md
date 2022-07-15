@@ -83,7 +83,9 @@ Looking for a specific amount of a specific type of jokes? We got you covered �
 
 ### `GET /all`
 
-Do you really need so many jokes? Leave everything to me ⚡
+> https://joke.deno.dev/all
+
+Do you really need so many jokes? Leave everything to us ⚡
 
 ```json
 [
