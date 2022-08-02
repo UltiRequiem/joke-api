@@ -129,6 +129,18 @@ If you have an idea for a new endpoint, submit an
 [issue](https://github.com/UltiRequiem/joke-api/issues/new) or a
 [pull request](https://github.com/UltiRequiem/joke-api/fork).
 
+## How the Jokes were collected
+
+The first 300 Jokes comes from
+[15Dkatz/official_joke_api](https://github.com/15Dkatz/official_joke_api) (At
+the moment of writting this, this project has 428 jokes.), the problem with that
+project is that its
+[server is down](https://github.com/15Dkatz/official_joke_api/issues/93), and it
+[has not been updated for 2 years](https://github.com/15Dkatz/official_joke_api/commits/master).
+
+The other jokes were progressively added by
+[contributors](https://github.com/UltiRequiem/joke/graphs/contributors).
+
 ## Licence
 
 Licensed under the MIT License 📄
