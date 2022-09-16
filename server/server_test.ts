@@ -1,6 +1,6 @@
 import { superoak } from "https://deno.land/x/superoak@4.7.0/mod.ts";
 
-import { equal } from "https://deno.land/std@0.155.0/testing/asserts.ts";
+import { equal } from "https://deno.land/std@0.156.0/testing/asserts.ts";
 
 import { app } from "./app.ts";
 import { jokes } from "./data.ts";
