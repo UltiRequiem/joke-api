@@ -111,6 +111,12 @@ Do you really need so many jokes? Leave everything to us ⚡
 ]
 ```
 
+## Analytics
+
+![Requests](https://user-images.githubusercontent.com/71897736/211101270-2a95504a-aa91-4553-9219-9da8fc2e4104.png)
+
+> January 2023, hitting around 400k requests per month.
+
 ## Contributing
 
 Submit a Pull Request, with your joke added to the `server/data.ts` file. Make
