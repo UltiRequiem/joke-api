@@ -2692,7 +2692,7 @@ export const jokes = [
    type: "dad",
    setup: "What do you call a fish with no eyes?",
    punchline: "Fsh.",
-   }
+   },
    {
     id: 454,
    type: "dad",
@@ -2842,7 +2842,7 @@ export const jokes = [
    type: "dad",
    setup: "Why did the melon jump into the lake?",
    punchline: "It wanted to be a water-melon!",
-   }
+   },
    {
     id: 479,
    type: "anime",
@@ -2902,7 +2902,7 @@ export const jokes = [
    type: "anime",
    setup: "How does Sakura always stay calm under pressure?",
    punchline: "Because she's in touch with her Inner-Sakura!",
-   }
+   },
    {
     id: 489,
    type: "programming",
