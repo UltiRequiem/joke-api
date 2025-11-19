@@ -1,32 +1,14 @@
-export function shuffle<T>(array: readonly T[]) {
-  const parsed = [...array];
-
-  let currentIndex = array.length,
-    randomIndex;
-
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-
-    currentIndex--;
-
-    // And swap it with the current element.
-    [parsed[currentIndex], parsed[randomIndex]] = [
-      parsed[randomIndex],
-      parsed[currentIndex],
-    ];
-  }
-
-  return parsed;
-}
-
-export function randomUniqueItems<T>(array: readonly T[], quanity: number) {
-  if (array.length < quanity) {
+export function randomUniqueItems<T>(array: readonly T[], quantity: number) {
+  if (array.length < quantity) {
     throw new RangeError("Asked for more items than they are");
   }
 
-  const shuffledArray = shuffle(array);
+  const result = [...array];
 
-  return shuffledArray.slice(0, quanity);
+  for (let i = 0; i < quantity; i++) {
+    const j = i + Math.floor(Math.random() * (result.length - i));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+
+  return result.slice(0, quantity);
 }

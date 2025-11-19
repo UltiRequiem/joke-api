@@ -1,7 +1,8 @@
-import { Middleware, randomItem, type RouterMiddleware } from "./deps.ts";
+import { Middleware, type RouterMiddleware } from "@oak/oak";
 import { CustomPublicError } from "./error.ts";
 import { randomUniqueItems } from "./utils.ts";
 import { jokes, jokesByType, jokeTypes } from "./data.ts";
+import { randomItem } from "./deps.ts";
 
 export const RootMiddleware: RouterMiddleware<"/"> = (ctx) => {
   ctx.response.body = randomItem(jokes);
@@ -12,7 +13,7 @@ export const AllMiddleware: RouterMiddleware<"/all"> = (ctx) => {
 };
 
 export const NumberMiddleware: RouterMiddleware<"/:id"> = (ctx) => {
-  const id = parseInt(ctx.params.id);
+  const id = Number.parseInt(ctx.params.id, 10);
 
   const joke = jokes.find((joke) => joke.id === id);
 
@@ -50,7 +51,9 @@ export const TypeQuantityMiddleware: RouterMiddleware<
     const data = randomUniqueItems(jokesByType[type], +quanity);
     ctx.response.body = data;
   } catch (error) {
-    throw new CustomPublicError(`${error.message} on category "${type}".`);
+    const message = error instanceof Error ? error.message : String(error);
+
+    throw new CustomPublicError(`${message} on category "${type}".`);
   }
 };
 

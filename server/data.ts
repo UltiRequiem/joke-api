@@ -1,4 +1,4 @@
-export const jokes = [
+export const jokes = Object.freeze([
   {
     id: 1,
     type: "general",
@@ -2975,11 +2975,11 @@ export const jokes = [
     setup: "What do you call Zenitsu when he doesn’t sleep?",
     punchline: "Thunderstruck!",
   },
-] as const;
+]);
 
 export const jokeTypes = [...new Set(jokes.map((jokes) => jokes.type))];
 
-export const jokesByType: Record<string, typeof jokes[number][]> = {};
+export const jokesByType: Record<string, (typeof jokes)[number][]> = {};
 
 for (const jokeType of jokeTypes) {
   jokesByType[jokeType] = jokes.filter((joke) => joke.type === jokeType);

@@ -1,4 +1,4 @@
-import { Application, Router } from "./deps.ts";
+import { Application, Router } from "@oak/oak";
 import {
   AllMiddleware,
   AllTypesMiddleware,

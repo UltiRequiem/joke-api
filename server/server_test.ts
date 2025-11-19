@@ -1,4 +1,4 @@
-import { superoak } from "https://deno.land/x/superoak@4.8.1/mod.ts";
+import { superoak } from "https://deno.land/x/superoak@5.0.0/mod.ts";
 
 import { equal } from "https://deno.land/std@0.224.0/testing/asserts.ts";
 
