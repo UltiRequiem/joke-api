@@ -1,21 +1,31 @@
 import { Middleware, type RouterMiddleware } from "@oak/oak";
 import { CustomPublicError } from "./error.ts";
 import { randomUniqueItems } from "./utils.ts";
-import { jokes, jokesByType, jokeTypes } from "./data.ts";
+import { jokes, jokesById, jokesByType, jokeTypes } from "./data.ts";
 import { randomItem } from "./deps.ts";
 
 export const RootMiddleware: RouterMiddleware<"/"> = (ctx) => {
+  ctx.response.headers.set("Cache-Control", "no-cache");
+  ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
   ctx.response.body = randomItem(jokes);
 };
-
 export const AllMiddleware: RouterMiddleware<"/all"> = (ctx) => {
+  const etag = `"jokes-${jokes.length}"`;
+  ctx.response.headers.set("ETag", etag);
+  ctx.response.headers.set("Cache-Control", "public, max-age=3600");
+  ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
+
+  if (ctx.request.headers.get("If-None-Match") === etag) {
+    ctx.response.status = 304;
+    return;
+  }
+
   ctx.response.body = jokes;
 };
-
 export const NumberMiddleware: RouterMiddleware<"/:id"> = (ctx) => {
   const id = Number.parseInt(ctx.params.id, 10);
 
-  const joke = jokes.find((joke) => joke.id === id);
+  const joke = jokesById.get(id);
 
   if (!joke) {
     throw new CustomPublicError(`Joke with ID "${id}" not found.`);
@@ -25,9 +35,10 @@ export const NumberMiddleware: RouterMiddleware<"/:id"> = (ctx) => {
 };
 
 export const AllTypesMiddleware: RouterMiddleware<"/type"> = (ctx) => {
+  ctx.response.headers.set("Cache-Control", "public, max-age=3600");
+  ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
   ctx.response.body = jokeTypes;
 };
-
 export const TypeMiddleware: RouterMiddleware<"/type/:type"> = (ctx) => {
   const type = ctx.params.type;
 
@@ -35,20 +46,28 @@ export const TypeMiddleware: RouterMiddleware<"/type/:type"> = (ctx) => {
     throw new CustomPublicError(`Joke category with type "${type}" not found.`);
   }
 
+  ctx.response.headers.set("Cache-Control", "public, max-age=3600");
+  ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
   ctx.response.body = jokesByType[type];
 };
-
 export const TypeQuantityMiddleware: RouterMiddleware<
-  "/type/:type/:quanity"
+  "/type/:type/:quantity"
 > = (ctx) => {
-  const { type, quanity } = ctx.params;
+  const { type, quantity } = ctx.params;
+
+  const safeQuantity = parseInt(quantity, 10);
+  if (Number.isNaN(safeQuantity) || safeQuantity < 1) {
+    throw new CustomPublicError("Quantity must be a positive number");
+  }
 
   if (!(type in jokesByType)) {
     throw new CustomPublicError(`Joke category with type "${type}" not found.`);
   }
 
   try {
-    const data = randomUniqueItems(jokesByType[type], +quanity);
+    const data = randomUniqueItems(jokesByType[type], safeQuantity);
+    ctx.response.headers.set("Cache-Control", "no-cache");
+    ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
     ctx.response.body = data;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -57,9 +76,19 @@ export const TypeQuantityMiddleware: RouterMiddleware<
   }
 };
 
-export const NOCORSMiddleware: Middleware = (ctx, next) => {
+export const NOCORSMiddleware: Middleware = async (ctx, next) => {
   ctx.response.headers.set("Access-Control-Allow-Origin", "*");
-  return next();
+  ctx.response.headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+  ctx.response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+  ctx.response.headers.set("X-Content-Type-Options", "nosniff");
+  ctx.response.headers.set("X-Frame-Options", "DENY");
+
+  if (ctx.request.method === "OPTIONS") {
+    ctx.response.status = 204;
+    return;
+  }
+
+  await next();
 };
 
 export const ErrorsMiddleware: Middleware = async (ctx, next) => {
@@ -67,6 +96,11 @@ export const ErrorsMiddleware: Middleware = async (ctx, next) => {
     await next();
   } catch (err) {
     if (err instanceof CustomPublicError) {
+      ctx.response.status = 404;
+      ctx.response.headers.set(
+        "Content-Type",
+        "application/json; charset=utf-8",
+      );
       ctx.response.body = { error: err.message };
     } else {
       throw err;

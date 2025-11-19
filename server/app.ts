@@ -20,7 +20,7 @@ router.get("/type", AllTypesMiddleware);
 router.get("/:id", NumberMiddleware);
 
 router.get("/type/:type", TypeMiddleware);
-router.get("/type/:type/:quanity", TypeQuantityMiddleware);
+router.get("/type/:type/:quantity", TypeQuantityMiddleware);
 router.get("/", RootMiddleware);
 
 app.use(NOCORSMiddleware);

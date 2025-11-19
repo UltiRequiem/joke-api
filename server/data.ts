@@ -2977,10 +2977,15 @@ export const jokes = Object.freeze([
   },
 ]);
 
-export const jokeTypes = [...new Set(jokes.map((jokes) => jokes.type))];
+export const jokesByType = jokes.reduce(
+  (acc, joke) => {
+    // biome-ignore lint/suspicious/noAssignInExpressions: Looks cool
+    (acc[joke.type] ??= []).push(joke);
+    return acc;
+  },
+  {} as Record<string, (typeof jokes)[number][]>,
+);
 
-export const jokesByType: Record<string, (typeof jokes)[number][]> = {};
+export const jokeTypes = Object.keys(jokesByType);
 
-for (const jokeType of jokeTypes) {
-  jokesByType[jokeType] = jokes.filter((joke) => joke.type === jokeType);
-}
+export const jokesById = new Map(jokes.map((joke) => [joke.id, joke]));
