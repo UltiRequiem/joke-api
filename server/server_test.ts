@@ -7,8 +7,8 @@ Deno.test("Main", async () => {
   const request = await superoak(app);
 
   await request.get("/").expect(({ body }) => {
-    const found = jokes.find((obj) => 
-      JSON.stringify(obj) === JSON.stringify(body)
+    const found = jokes.find(
+      (obj) => JSON.stringify(obj) === JSON.stringify(body),
     );
     if (!found) {
       console.log(body);
