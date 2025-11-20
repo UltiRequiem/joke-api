@@ -7,10 +7,13 @@ import { randomUniqueItems } from "./utils.ts";
 export const RootMiddleware: RouterMiddleware<"/"> = (ctx) => {
   ctx.response.headers.set("Cache-Control", "no-cache");
   ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
+
   ctx.response.body = randomItem(jokes);
 };
+
+const etag = `jokes-${jokes.length}`;
+
 export const AllMiddleware: RouterMiddleware<"/all"> = (ctx) => {
-  const etag = `"jokes-${jokes.length}"`;
   ctx.response.headers.set("ETag", etag);
   ctx.response.headers.set("Cache-Control", "public, max-age=3600");
   ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
@@ -22,6 +25,7 @@ export const AllMiddleware: RouterMiddleware<"/all"> = (ctx) => {
 
   ctx.response.body = jokes;
 };
+
 export const NumberMiddleware: RouterMiddleware<"/:id"> = (ctx) => {
   const id = Number.parseInt(ctx.params.id, 10);
 
@@ -37,8 +41,10 @@ export const NumberMiddleware: RouterMiddleware<"/:id"> = (ctx) => {
 export const AllTypesMiddleware: RouterMiddleware<"/type"> = (ctx) => {
   ctx.response.headers.set("Cache-Control", "public, max-age=3600");
   ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
+
   ctx.response.body = jokeTypes;
 };
+
 export const TypeMiddleware: RouterMiddleware<"/type/:type"> = (ctx) => {
   const type = ctx.params.type;
 
@@ -48,14 +54,17 @@ export const TypeMiddleware: RouterMiddleware<"/type/:type"> = (ctx) => {
 
   ctx.response.headers.set("Cache-Control", "public, max-age=3600");
   ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
+
   ctx.response.body = jokesByType[type];
 };
+
 export const TypeQuantityMiddleware: RouterMiddleware<
   "/type/:type/:quantity"
 > = (ctx) => {
   const { type, quantity } = ctx.params;
 
-  const safeQuantity = parseInt(quantity, 10);
+  const safeQuantity = Number.parseInt(quantity, 10);
+
   if (Number.isNaN(safeQuantity) || safeQuantity < 1) {
     throw new CustomPublicError("Quantity must be a positive number");
   }
@@ -66,8 +75,10 @@ export const TypeQuantityMiddleware: RouterMiddleware<
 
   try {
     const data = randomUniqueItems(jokesByType[type], safeQuantity);
+
     ctx.response.headers.set("Cache-Control", "no-cache");
     ctx.response.headers.set("Content-Type", "application/json; charset=utf-8");
+
     ctx.response.body = data;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
