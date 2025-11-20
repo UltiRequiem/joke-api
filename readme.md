@@ -1,18 +1,32 @@
-# The Joke API
+# 🎭 The Joke API
 
 ![CI](https://github.com/UltiRequiem/joke/workflows/CI/badge.svg)
 [![Code Coverage](https://codecov.io/gh/ultirequiem/joke-api/branch/main/graph/badge.svg)](https://codecov.io/gh/ultirequiem/joke-api)
+[![Deno Deploy](https://img.shields.io/badge/Deno-Deploy-00ADD8?logo=deno)](https://joke.deno.dev)
 
-A blazing fast jokes REST API made with [Oak](https://github.com/oakserver/oak)
-on [Deno Deploy](https://deno.com/deploy/docs) 🦕 🚀
+A blazing fast, production-ready jokes REST API built with
+[Oak](https://github.com/oakserver/oak) on
+[Deno Deploy](https://deno.com/deploy/docs). Get random jokes, search by type,
+and more! 🦕 🚀
 
-## API
+**Base URL:** `https://joke.deno.dev`
 
-### `GET /`
+## ✨ Features
 
-> https://joke.deno.dev
+- 🚀 **Fast & Reliable** - Deployed on Deno Deploy edge network
+- 🔒 **CORS Enabled** - Use from any domain
+- 💾 **Smart Caching** - Optimized with ETag and Cache-Control headers
+- 🛡️ **Secure** - Built-in security headers
+- 📦 **2900+ Jokes** - Across multiple categories
+- 🎯 **Type-Safe** - Written in TypeScript
 
-Get a random joke ✨
+## 📚 API Endpoints
+
+### `GET /` - Random Joke
+
+**URL:** `https://joke.deno.dev`
+
+Returns a random joke from the entire collection.
 
 ```json
 {
@@ -23,11 +37,11 @@ Get a random joke ✨
 }
 ```
 
-### `GET /:id`
+### `GET /:id` - Get Joke by ID
 
-> https://joke.deno.dev/350
+**URL:** `https://joke.deno.dev/350`
 
-Did you like a joke? Get the same one whenever you want 🦀
+Get a specific joke by its ID. Perfect for saving your favorites!
 
 ```json
 {
@@ -38,11 +52,21 @@ Did you like a joke? Get the same one whenever you want 🦀
 }
 ```
 
-### `GET /type/:type`
+### `GET /type` - List Available Types
 
-> https://joke.deno.dev/type/programming
+**URL:** `https://joke.deno.dev/type`
 
-Looking for a specific type of jokes? You're lucky 🐌
+Returns an array of all available joke types.
+
+```json
+["general", "programming", "knock-knock", ...]
+```
+
+### `GET /type/:type` - Get Jokes by Type
+
+**URL:** `https://joke.deno.dev/type/programming`
+
+Get all jokes of a specific type.
 
 ```json
 [
@@ -62,13 +86,11 @@ Looking for a specific type of jokes? You're lucky 🐌
 ]
 ```
 
-All available types are listed on `GET /type` 🕵️‍♂️
+### `GET /type/:type/:quantity` - Get Random Jokes by Type
 
-### `GET /type/:type/:quantity`
+**URL:** `https://joke.deno.dev/type/general/5`
 
-Looking for a specific amount of a specific type of jokes? We got you covered 🐿
-
-> https://joke.deno.dev/type/general/1
+Get a specific number of random jokes from a category.
 
 ```json
 [
@@ -81,11 +103,11 @@ Looking for a specific amount of a specific type of jokes? We got you covered �
 ]
 ```
 
-### `GET /all`
+### `GET /all` - Get All Jokes
 
-> https://joke.deno.dev/all
+**URL:** `https://joke.deno.dev/all`
 
-Do you really need so many jokes? Leave everything to us ⚡
+Returns the complete collection of jokes. Cached for optimal performance.
 
 ```json
 [
@@ -111,42 +133,122 @@ Do you really need so many jokes? Leave everything to us ⚡
 ]
 ```
 
-## Analytics
+## 🚀 Quick Start
+
+### JavaScript/TypeScript
+
+```typescript
+// Get a random joke
+const response = await fetch("https://joke.deno.dev");
+const joke = await response.json();
+console.log(`${joke.setup} - ${joke.punchline}`);
+```
+
+### Python
+
+```python
+import requests
+
+response = requests.get('https://joke.deno.dev')
+joke = response.json()
+print(f"{joke['setup']} - {joke['punchline']}")
+```
+
+### cURL
+
+```bash
+curl https://joke.deno.dev
+```
+
+## 🔧 Development
+
+### Prerequisites
+
+- [Deno](https://deno.land/) 1.x or higher
+
+### Run Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/UltiRequiem/joke-api.git
+cd joke-api
+
+# Start the server
+deno run --allow-net server/server.ts
+
+# Server runs on http://localhost:3000
+```
+
+### Run Tests
+
+```bash
+deno test --allow-net
+```
+
+## 📊 Analytics
 
 ![Requests](https://user-images.githubusercontent.com/71897736/211101270-2a95504a-aa91-4553-9219-9da8fc2e4104.png)
 
 > January 2023, hitting around 400k requests per month.
 
-## Contributing
+## 🤝 Contributing
 
-Submit a Pull Request, with your joke added to the `server/data.ts` file. Make
-sure your joke is in this format:
+We welcome contributions! Here's how you can help:
+
+### Adding New Jokes
+
+1. Fork the repository
+2. Add your joke to `server/data.ts` in this format:
 
 ```typescript
 {
-  "id": last joke id + 1,
-  "type": "programming",
-  "setup": "What's the best thing about a Boolean?",
-  "punchline": "Even if you're wrong, you're only off by a bit."
+  id: [last joke id + 1],
+  type: "programming", // or "general", "knock-knock", etc.
+  setup: "What's the best thing about a Boolean?",
+  punchline: "Even if you're wrong, you're only off by a bit."
 }
 ```
 
-If you have an idea for a new endpoint, submit an
-[issue](https://github.com/UltiRequiem/joke-api/issues/new) or a
-[pull request](https://github.com/UltiRequiem/joke-api/fork).
+3. Submit a Pull Request
 
-## How the Jokes were collected
+### Suggesting Features
 
-The first 300 Jokes comes from
-[15Dkatz/official_joke_api](https://github.com/15Dkatz/official_joke_api) (At
-the moment of writting this, this project has 428 jokes.), the problem with that
-project is that its
-[server is down](https://github.com/15Dkatz/official_joke_api/issues/93), and it
-[has not been updated for 2 years](https://github.com/15Dkatz/official_joke_api/commits/master).
+Have an idea for a new endpoint or feature? Please:
 
-The other jokes were progressively added by
-[contributors](https://github.com/UltiRequiem/joke/graphs/contributors).
+- [Open an issue](https://github.com/UltiRequiem/joke-api/issues/new) to discuss
+  it
+- Or submit a [pull request](https://github.com/UltiRequiem/joke-api/fork) with
+  your implementation
 
-## Licence
+### Guidelines
 
-Licensed under the MIT License 📄
+- Ensure jokes are appropriate and inclusive
+- Test your changes locally before submitting
+- Follow the existing code style
+- Update tests if needed
+
+## 📖 Data Source
+
+The initial 300 jokes came from
+[15Dkatz/official_joke_api](https://github.com/15Dkatz/official_joke_api). Since
+that project's server went down and development ceased, we've maintained and
+grown the collection.
+
+The collection has expanded to **2900+ jokes** thanks to our amazing
+[contributors](https://github.com/UltiRequiem/joke/graphs/contributors)! 🎉
+
+## 🔗 Related Projects
+
+Looking for more? Check out these joke APIs:
+
+- [JokeAPI](https://jokeapi.dev/) - Comprehensive joke API with filtering
+- [icanhazdadjoke](https://icanhazdadjoke.com/) - Dad jokes API
+
+## 📝 License
+
+Licensed under the [MIT License](license) 📄
+
+---
+
+Made with ❤️ by [UltiRequiem](https://github.com/UltiRequiem) and
+[contributors](https://github.com/UltiRequiem/joke-api/graphs/contributors)
