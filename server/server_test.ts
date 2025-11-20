@@ -1,4 +1,4 @@
-import { equal } from "@std/testing/asserts";
+import { equal } from "@std/assert";
 import { superoak } from "superoak";
 
 import { app } from "./app.ts";
