@@ -1,4 +1,3 @@
-import { assertEquals } from "@std/assert";
 import { superoak } from "superoak";
 
 import { app } from "./app.ts";
