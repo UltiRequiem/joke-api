@@ -1,5 +1,5 @@
-import { equal } from "https://deno.land/std@0.224.0/testing/asserts.ts";
-import { superoak } from "https://deno.land/x/superoak@5.0.0/mod.ts";
+import { equal } from "@std/testing/asserts";
+import { superoak } from "superoak";
 
 import { app } from "./app.ts";
 import { jokes } from "./data.ts";

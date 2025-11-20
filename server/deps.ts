@@ -1,4 +1,4 @@
-export { randomItem } from "https://deno.land/x/random_item@v1.2.0/mod.ts";
+export { randomItem } from "random_item";
 export {
   Application,
   type Middleware,
