@@ -1,8 +1,8 @@
-import { Middleware, type RouterMiddleware } from "@oak/oak";
-import { CustomPublicError } from "./error.ts";
-import { randomUniqueItems } from "./utils.ts";
+import type { Middleware, RouterMiddleware } from "@oak/oak";
 import { jokes, jokesById, jokesByType, jokeTypes } from "./data.ts";
 import { randomItem } from "./deps.ts";
+import { CustomPublicError } from "./error.ts";
+import { randomUniqueItems } from "./utils.ts";
 
 export const RootMiddleware: RouterMiddleware<"/"> = (ctx) => {
   ctx.response.headers.set("Cache-Control", "no-cache");
