@@ -1,14 +1,17 @@
-import { equal } from "@std/assert";
-import { superoak } from "superoak";
+import { assertEquals } from "@std/assert";
+import { superdeno } from "superdeno";
 
 import { app } from "./app.ts";
 import { jokes } from "./data.ts";
 
 Deno.test("Main", async () => {
-  const request = await superoak(app);
+  const request = superdeno(app);
 
   await request.get("/").expect(({ body }) => {
-    if (!jokes.find((obj) => equal(obj, body))) {
+    const found = jokes.find((obj) => 
+      JSON.stringify(obj) === JSON.stringify(body)
+    );
+    if (!found) {
       console.log(body);
       throw new Error("Did not find this joke.");
     }

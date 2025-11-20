@@ -2,7 +2,7 @@
   "imports": {
     "@oak/oak": "jsr:@oak/oak@^17.1.6",
     "@std/assert": "jsr:@std/assert@^1.0.11",
-    "superoak": "https://deno.land/x/superoak@5.0.0/mod.ts",
+    "superdeno": "jsr:@oak/superdeno@^1.0.0",
     "random_item": "https://deno.land/x/random_item@v1.2.0/mod.ts"
   }
 }
