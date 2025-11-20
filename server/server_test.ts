@@ -1,11 +1,11 @@
 import { assertEquals } from "@std/assert";
-import { superdeno } from "superdeno";
+import { superoak } from "superoak";
 
 import { app } from "./app.ts";
 import { jokes } from "./data.ts";
 
 Deno.test("Main", async () => {
-  const request = superdeno(app);
+  const request = await superoak(app);
 
   await request.get("/").expect(({ body }) => {
     const found = jokes.find((obj) => 
